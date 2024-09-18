@@ -1,0 +1,30 @@
+{
+    "foremalData":
+    [
+        {
+            "namn":" bil",
+            "pris":30,
+            "bild":"../../tillgangar/test.jpg"
+        },
+       {
+            "namn":" super bil",
+            "pris":300,
+            "bild":"../../tillgangar/test.jpg"
+        },
+        {
+            "namn":" bil",
+            "pris":30,
+            "bild":"../../tillgangar/test.jpg"
+        },
+       {
+            "namn":" bil",
+            "pris":30,
+            "bild":"../../tillgangar/test.jpg"
+        },
+        {
+            "namn":" bil",
+            "pris":30,
+            "bild":"../../tillgangar/test.jpg"
+        }
+    ]
+}
