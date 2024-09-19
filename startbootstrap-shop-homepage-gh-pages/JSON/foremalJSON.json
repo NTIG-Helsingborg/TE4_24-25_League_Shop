@@ -2,29 +2,46 @@
     "foremalData":
     [
         {
-            "namn":" bil",
-            "pris":30,
-            "bild":"../../tillgangar/test.jpg"
+            "namn":"Spirit Blossom Yone",
+            "pris":60,
+            "bild":"tillgangar/yone.jpg"
         },
        {
-            "namn":" super bil",
+            "namn":"30x Breakout Capsules",
             "pris":300,
-            "bild":"../../tillgangar/test.jpg"
+            "bild":"tillgangar/breakout.jpg"
         },
         {
-            "namn":" bil",
+            "namn":"Hextech chest",
             "pris":30,
-            "bild":"../../tillgangar/test.jpg"
+            "bild":"tillgangar/chest.jpg"
         },
        {
-            "namn":" bil",
+            "namn":"Hextech Key",
             "pris":30,
-            "bild":"../../tillgangar/test.jpg"
+            "bild":"tillgangar/key.png"
         },
         {
-            "namn":" bil",
+            "namn":"Masterwork chest",
             "pris":30,
-            "bild":"../../tillgangar/test.jpg"
+            "bild":"tillgangar/master.jpg"
+        },
+        {
+            "namn":"Soul Fighter Viego",
+            "pris":30,
+            "bild":"tillgangar/viego.jpg"
+        },
+        {
+            "namn":"4x Orb 1x Grab Bag",
+            "pris":30,
+            "bild":"tillgangar/orbbag.jpg"
+        },
+        {
+            "namn":"Prime Capsule",
+            "pris":30,
+            "bild":"tillgangar/prime.jpg"
         }
+
+
     ]
 }
