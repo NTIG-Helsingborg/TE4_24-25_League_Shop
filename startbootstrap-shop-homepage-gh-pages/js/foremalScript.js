@@ -1,7 +1,7 @@
 //-------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () 
 {
-  fetch('js/foremalJSON.json')
+  fetch('JSON/foremalJSON.json')
 	  .then(response => response.json())
 	  .then(data => 
 	  {
