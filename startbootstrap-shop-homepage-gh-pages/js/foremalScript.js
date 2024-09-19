@@ -8,9 +8,23 @@ document.addEventListener("DOMContentLoaded", function ()
 //-----------------------JSON FETCH FUNKTION-----------------------------
 
 			let tillLagd = [];
+			let idRaknare =0;
+			let idLista =[];
 
 
 //-----------------DEFINERAR ANVÄNDBARA GLOBALA VARIABLAR----------------
+
+			let foremalLista = document.getElementsByClassName("foremal");
+
+			for (var i = 0; i < foremalLista.length; i++) 
+			{
+				foremalLista[i].id = ("foremal"+i);
+
+				idLista.push(foremalLista[i].id);
+				
+			}
+
+//-------------------SKAPAR ID TILL ALLA FÖREMÅL--------------------
 			"use strict";
 			class produkt 
 			{
@@ -21,31 +35,34 @@ document.addEventListener("DOMContentLoaded", function ()
 			    this.bild= bild;
 			  }
 			}
+
 //------------------------------------SKAPAR KLASSEN FÖR FÖREMÅLEN VI SÄLJER-----------------------
 			let skin1 = new produkt(data.foremalData[0].pris,data.foremalData[0].namn,data.foremalData[0].bild);
 			let skin2 = new produkt(data.foremalData[1].pris,data.foremalData[1].namn,data.foremalData[0].bild);
 
 
-			//HÄMTAR DATAN FÖR FÖREMÅLEN FRÅN EN JSON "FORMALJSON.JSON"
+			//HÄMTAR DATAN FÖR FÖREMÅLEN FRÅN EN JSON "FORMALJSON.JSON" IS LOOPABLE
 //-------------------------------------SKAPAR OBJEKT FÖR FÖREMÅLEN SOM SÄLJS-----------------------
+
+			
 			document.addEventListener('click', function (event) 
 			{
 		    if (event.target.tagName === 'BUTTON') 
 		    	//SKAPAR EN EVENTLISTENER FÖR HELA DOKUMENTET SOM VÄNTAR PÅ ATT EN KNAPP SKA KLICKAS PÅ
 		    {
-		      let parentDiv = event.target.closest('div');
+		      let ovreDiv = event.target.closest('div');
 		      //LETAR EFTER DEN NÄRMSTA DIV BOXEN
 		      
-		      while (parentDiv && parentDiv.tagName === 'DIV' && !parentDiv.id) 
+		      while (ovreDiv && ovreDiv.tagName === 'DIV' && !ovreDiv.id) 
 		      {
-		          parentDiv = parentDiv.parentElement;
+		          ovreDiv = ovreDiv.parentElement;
 		      }
 		      //GÅR FRÅN KNAPPEN OCH UPP IGENOM DOM TRÄDET FÖR ATT HITTA EN DIV MED ETT ID
-		      if (parentDiv && parentDiv.id) 
+		      if (ovreDiv && ovreDiv.id) 
 		      {
-		        const outerDivId = parentDiv.id;
-		        tillLagd.push(outerDivId);//LÄGGER ID LÄNGSTBACK I ARRAY
-		        localStorage.setItem("id", tillLagd);
+		        const indexId = idLista.indexOf(ovreDiv.id);
+		        tillLagd.push(indexId);//LÄGGER INDEXET FÖR JSON ARRAY LÄNGST BAK I ARRAY
+		        localStorage.setItem("index", tillLagd);
 		      } 
 
 		      else 
@@ -58,8 +75,10 @@ document.addEventListener("DOMContentLoaded", function ()
 			//FÖREMÅLETS ID I EN ARRAY SOM LÄGGS I LOCAL STORAGE SÅ VI KAN HÄMTA DET SENARE
 //-------------FUNKTION SOM KOLLAR VILKEN KNAPP SOM TRYCKS------------
 			
-			redigeraForemal(skin1.pris, skin1.namn, skin1.bild,"produkten1")
-			redigeraForemal(skin2.pris, skin2.namn, skin2.bild,"produkten2")
+			redigeraForemal(skin1.pris, skin1.namn, skin1.bild,idLista[0])
+			redigeraForemal(skin2.pris, skin2.namn, skin2.bild,idLista[1])
+			//IS LOOPABLE
+
 			function redigeraForemal(pris,namn,bild,produktId)
 			{
 				const foremolId = document.getElementById(produktId)
