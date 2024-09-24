@@ -1,97 +1,86 @@
-//-------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () 
 {
-  fetch('JSON/foremalJSON.json')
-	  .then(response => response.json())
-	  .then(data => 
-	  {
-//-----------------------JSON FETCH FUNKTION-----------------------------
+    fetch('JSON/foremalJSON.json')
+        .then(response => response.json())
+        .then(data => 
+        {
+//-------------------------------DEFINERAR GLOBLA VARIABLAR--------------------------------------------
+            let tillLagd = [];
+            let idLista = [];
+            const korg = document.getElementById("korgAntal");
+//------------------------------SKAPAR EN KLASS FÖR VARORNA-------------------------------------------
+            class Produkt 
+            {
+                constructor(pris, namn, bild) 
+                {
+                    this.pris = pris;
+                    this.namn = namn;
+                    this.bild = bild;
+                }
+            }
+//-----------------------------------------SKAPAR OBJEKT SAMT ANGER ID TILL DEM------------------------------------
+            const foremalLista = document.getElementsByClassName("foremal");
 
-			let tillLagd = [];
-			let idRaknare =0;
-			let idLista =[];
-			let skin =[];
+            for (let i = 0; i < foremalLista.length; i++) 
+            {
+                foremalLista[i].id = "foremal" + i;
+                idLista.push(foremalLista[i].id);
+                const skin = new Produkt(data.foremalData[i].pris, data.foremalData[i].namn, data.foremalData[i].bild);
+                redigeraForemal(skin.pris, skin.namn, skin.bild, idLista[i]);
+            }
 
+//-------------------------------------UPDATERAR VAGNEN DÅ SIDAN LADDAS IN-----------------------------------------
+            korg.textContent = JSON.parse(localStorage.getItem("index"))?.length || 0;
 
-//-----------------DEFINERAR ANVÄNDBARA GLOBALA VARIABLAR----------------
+            // Click event for buttons
+            document.addEventListener('click', function (event) {
+                if (event.target.tagName === 'BUTTON' && event.target.dataset.bsTarget === '#exampleModal') 
+                {
+                    let ovreDiv = event.target.closest('div');
 
+                    while (ovreDiv && ovreDiv.tagName === 'DIV' && !ovreDiv.id) 
+                    {
+                        ovreDiv = ovreDiv.parentElement;
+                    }
 
-			"use strict";
-			class produkt 
-			{
-			  constructor(pris,namn,bild) 
-			  {
-			    this.pris = pris;
-			    this.namn = namn;
-			    this.bild= bild;
-			  }
-			}
+                    if (ovreDiv && ovreDiv.id) 
+                    {
+                        const indexId = idLista.indexOf(ovreDiv.id);
+                        modalInput(indexId, data);
+                    } 
 
-//------------------------------------SKAPAR KLASSEN FÖR FÖREMÅLEN VI SÄLJER-----------------------
+                    else 
+                    {
+                        console.log('No outer div with id found');
+                    }
+                }
+            });
+//-----------------------------------------MODAL LOGIK OCH MODAL INNEHÅLL FÖRÄNDRING BEROENDE PÅ VILKEN KNAPP-------------------
+            function modalInput(indexId, data) 
+            {
+                document.getElementById("modalLabel").textContent = "Lägg till " + data.foremalData[indexId].namn + "?";
+                document.getElementById("modalImg").src = data.foremalData[indexId].bild;
+                document.getElementById("priset").textContent = data.foremalData[indexId].pris+"kr";
 
-
-			let foremalLista = document.getElementsByClassName("foremal");
-
-			for (var i = 0; i < foremalLista.length; i++) 
-			{
-				foremalLista[i].id = ("foremal"+i);
-
-				idLista.push(foremalLista[i].id);
-
-				skin[i] = new produkt(data.foremalData[i].pris,data.foremalData[i].namn,data.foremalData[i].bild);
-				redigeraForemal(skin[i].pris, skin[i].namn, skin[i].bild,idLista[i])
-
-				
-			}
-			//HÄMTAR DATAN FÖR FÖREMÅLEN FRÅN EN JSON "FORMALJSON.JSON" IS LOOPABLE
-//-------------------------------------SKAPAR OBJEKT FÖR FÖREMÅLEN SOM SÄLJS-----------------------
-
-			
-			document.addEventListener('click', function (event) 
-			{
-		    if (event.target.tagName === 'BUTTON') 
-		    	//SKAPAR EN EVENTLISTENER FÖR HELA DOKUMENTET SOM VÄNTAR PÅ ATT EN KNAPP SKA KLICKAS PÅ
-		    {
-		      let ovreDiv = event.target.closest('div');
-		      //LETAR EFTER DEN NÄRMSTA DIV BOXEN
-		      
-		      while (ovreDiv && ovreDiv.tagName === 'DIV' && !ovreDiv.id) 
-		      {
-		          ovreDiv = ovreDiv.parentElement;
-		      }
-		      //GÅR FRÅN KNAPPEN OCH UPP IGENOM DOM TRÄDET FÖR ATT HITTA EN DIV MED ETT ID
-		      if (ovreDiv && ovreDiv.id) 
-		      { 
-		        const indexId = idLista.indexOf(ovreDiv.id);
-		        tillLagd.push(indexId);//LÄGGER INDEXET FÖR JSON ARRAY LÄNGST BAK I ARRAY
-		        localStorage.setItem("index", tillLagd);
-		      } 
-
-		      else 
-		      {
-		          console.log('No outer div with id found');
-		      }
-		    }
-			});
-			//DENNA FUNKTION KOLLAR VILKEN KNAPP SOM TRYCKS SAMT LÄGGER 
-			//FÖREMÅLETS ID I EN ARRAY SOM LÄGGS I LOCAL STORAGE SÅ VI KAN HÄMTA DET SENARE
-//-------------FUNKTION SOM KOLLAR VILKEN KNAPP SOM TRYCKS-----------------------
-
-			function redigeraForemal(pris,namn,bild,produktId)
-			{
-				const foremolId = document.getElementById(produktId)
-
-				let titlar = foremolId.getElementsByTagName('h5')[0];
-				titlar.innerHTML =namn;
-
-				let priser = foremolId.getElementsByTagName('p')[0];
-				priser.innerHTML =(pris+"kr");
-
-				let bilden = foremolId.getElementsByTagName('img')[0];
-				bilden.src = bild;
-			}
-//------------------------------TILLÅTER OSS ATT ÄNDRA ALLA SÄLJES FÖREMÅL I JS-------------------------
-		})
-	.catch(error => console.error("Error fetching JSON data:", error));
+//----------------------------------------LOCAL STORAGE FÖRVARING GENOM KNAPP I MODAL------------------------------------------
+                const laggTillButton = document.getElementById("laggTill");
+                laggTillButton.onclick = function () 
+                {
+                    tillLagd = JSON.parse(localStorage.getItem("index")) || [];
+                    tillLagd.push(indexId); // FÖRVARAR INDEXET FÖR VARANS INFORMATION I JSON
+                    localStorage.setItem("index", JSON.stringify(tillLagd));
+                    korg.textContent = JSON.parse(localStorage.getItem("index")).length; // UPDATERAR VAGNEN DÅ NY FÖREMÅL LÄGS TILL
+                };
+            }
+//-------------------------------------FUNKTION FÖR ATT ÄNDRA FÖREMÅL ENKELT VIA JSON----------------------
+            function redigeraForemal(pris, namn, bild, produktId) 
+            {
+                const foremalId = document.getElementById(produktId);
+                foremalId.getElementsByTagName('h5')[0].textContent = namn;
+                foremalId.getElementsByTagName('p')[0].textContent = (pris + " kr");
+                foremalId.getElementsByTagName('img')[0].src = bild;
+            }
+        })
+//-------------------------------------JSON FEL KOLL-----------------------------------------------------
+        .catch(error => console.error("Error fetching JSON data:", error));
 });
-//--------------------------------OM JSON FETCH EJ FUNGERAR------------------------------------------
