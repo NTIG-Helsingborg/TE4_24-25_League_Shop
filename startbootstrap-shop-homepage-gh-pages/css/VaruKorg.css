@@ -1,0 +1,13 @@
+
+#labelRäknare{
+display: block;
+font-size: 3em;
+}
+
+
+.knapp {
+    font-size: 20px;   /* Makes the button text bigger */
+    padding: 15px 30px; /* Increases button size */
+    cursor: pointer;    /* Changes the cursor to a pointer when hovering */
+    margin: 10px;       /* Adds space between the buttons */
+}
