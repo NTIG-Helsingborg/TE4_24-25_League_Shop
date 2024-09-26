@@ -38,13 +38,12 @@ document.addEventListener("DOMContentLoaded", function ()
                 labelRäknare.textContent=value
             }*/
            
-            // Append the produkt card to a container with a specific ID
             
-            
+            //funktion för att visa vad som finns i varukorgen
             function createProduktCard(produkt, containerId) {
-            // Create a container div with Bootstrap classes
+            // skapar en div med de nödvändiga Bootstrap classes
             let containerDiv = document.createElement('div');
-            containerDiv.classList.add('row', 'align-items-center', 'border', 'p-3', 'mb-3')
+            containerDiv.classList.add('row', 'align-items-center', 'border', 'p-3', 'm-1')
 
             // Create a div for produkt bild and namn (left side)
             let produktInfoDiv = document.createElement('div');
@@ -56,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function ()
             produktImg.alt = produkt.namn;
             produktImg.classList.add('img-fluid', 'me-3');
 
-            produktImg.style.width = '268px';
-            produktImg.style.height = '150px';
+            produktImg.style.width = '50%';
+            produktImg.style.height = 'auto';
 
             // Create a span element for the produkt namn
             let produktName = document.createElement('span');
@@ -94,13 +93,7 @@ document.addEventListener("DOMContentLoaded", function ()
                 console.error(`Container with ID "${containerId}" not found.`);
             }
         }
-        
-
-        
-            
-
-            
-
+       
 //----------------------------------------------------------------------------
         })
         .catch(error => console.error("Error fetching JSON data:", error));
