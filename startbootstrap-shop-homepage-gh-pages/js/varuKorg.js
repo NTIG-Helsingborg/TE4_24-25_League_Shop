@@ -9,16 +9,20 @@ document.addEventListener("DOMContentLoaded", function ()
             const containerCart = document.getElementById("containerCart"); //id av htlm
 
             tillLagd = JSON.parse(localStorage.getItem("index")) || []; // hämtar från local storage
+            while()
+            if tillLagd
+
             if (tillLagd.length > 0 )
             {
                 const fyllningsText = document.getElementById("filler");
                 fyllningsText.remove();
             }
             
-            for (let i = 0; i < tillLagd.length; i++) { // for loop som skiver hela array med tillagda föremål
-               createProduktCard(data.foremalData[tillLagd[i]], 'containerCart');
-
+            for (let i = 0; i < tillLagd.length; i++) 
+            { // for loop som skiver hela array med tillagda föremål
+                createProduktCard(data.foremalData[tillLagd[i]], 'containerCart');
             }
+            
             /*let labelRäknare = document.getElementById("labelRäknare"); // hämar id button från htlm
             const ökningKnapp = document.getElementById("ökningKnapp");
             const återställaKnapp = document.getElementById("återställaKnapp");
