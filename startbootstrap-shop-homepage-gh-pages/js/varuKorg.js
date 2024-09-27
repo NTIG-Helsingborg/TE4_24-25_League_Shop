@@ -5,65 +5,99 @@ document.addEventListener("DOMContentLoaded", function ()
         .then(data => 
         {
 //----------------------------------------------------------------------------
-            const itemContainer = document.getElementById("itemContainer"); // hämar id button från htlm
-            const containerCart = document.getElementById("containerCart"); //id av htlm
+        const containerCart = document.getElementById('containerCart');
+        const numberOfBoxes = 3; // Antalet boxar vi vill skapa
 
-            tillLagd = JSON.parse(localStorage.getItem("index")) || []; // hämtar från local storage
+        tillLagd = JSON.parse(localStorage.getItem("index")) || []; // hämtar från local storage
 
-            
-            let value = 1; // initial value
-            
-            for (let i = 0; i < tillLagd.length; i++) { // for loop som skriver hela array med tillagda föremål
-                let namn = data.foremalData[tillLagd[i]].namn; // hämtar data från json baserad på index från local storage 
-                let pris = data.foremalData[tillLagd[i]].pris;
-            
-                let namnElement = document.createElement('h1'); // skapar ett element för att kunna skriva ut namnen
-                let prisElement = document.createElement("h1");
+        for (let i = 0; i < tillLagd.length; i++) 
+        {
+            let namn = data.foremalData[tillLagd[i]].namn; // hämtar data från json baserad på index från local storage 
+            let pris = data.foremalData[tillLagd[i]].pris;
+            // Skapa en div för boxen
+            const box = document.createElement('div');
+
+            let namnElement = document.createElement('h1'); // skapar ett element för att kunna skriva ut namnen
+            let prisElement = document.createElement("h1");
                 
                 prisElement.textContent = pris; // sätter innehållet till hämtade priset från json fil
                 namnElement.textContent = namn;
             
-                let itemContainer = document.createElement("div"); // skapar en div 
-                itemContainer.appendChild(namnElement); // lägger föremålen i div
-                itemContainer.appendChild(prisElement);
-                itemContainer.id = "lada" + i;
+                box.appendChild(namnElement); // lägger föremålen i div
+                box.appendChild(prisElement);
+                box.id = "lada" + i;
+                box.classList.add('box');
             
-                // Skapa knappen för att öka värdet
-                const ökningKnapp = document.createElement('button');
-                ökningKnapp.textContent = "Öka";
-            
-                // Skapa knappen för att återställa värdet
-                let antal = document.createElement("span"); // skapar ett element för att skriva ut priset
-                antal.textContent = value;
+
+            // Skapa minus-knappen (plus)
+            const plusButton = document.createElement('button');
+            plusButton.classList.add('plus');
+            plusButton.textContent = '+';
             
             
-                // Skapa knappen för att minska värdet
-                const minskningKnapp = document.createElement('button');
-                minskningKnapp.textContent = "Minska";
+            // Skapa värdvisaren
+            const valueDisplay = document.createElement('span');
+            valueDisplay.classList.add('value');
+            valueDisplay.textContent = '1';
+            
+            // Skapa plus-knappen (minus)
+            const minusButton = document.createElement('button');
+            minusButton.classList.add('minus');
+            minusButton.textContent = '-';
+
+            // Lägg till knappar och värdvisare i boxen
+            box.appendChild(plusButton);  
+            box.appendChild(valueDisplay);
+            box.appendChild(minusButton);
+
+            // Lägg till boxen i container
+            containerCart.appendChild(box);
+
+            // Händelselyssnare för plus-knappen
+            plusButton.addEventListener('click', () => {
+                let value = parseInt(valueDisplay.textContent);
+                value++;
+                valueDisplay.textContent = value;
+            });
+
+            // Händelselyssnare för minus-knappen
+            minusButton.addEventListener('click', () => 
+            {
+                let value = parseInt(valueDisplay.textContent);
+                value--;
+                valueDisplay.textContent = value;
+                if (value <= 0) {
+                    box.remove(); // ta bort box om värdet är 0 eller lägre
+                }
+            });
+        }
+
+
+
+
+
+           
+
+           
+
+            
+        
+            
                 
-                ökningKnapp.onclick = function() { // funktion som adderar
-                    value++;
-                    antal.textContent = value; // uppdatera värdet på labelRäknare
-                };
             
-                // Hantera klick på minskningknappen
-                minskningKnapp.onclick = function() { // funktion som subtraherar
-                    value--;
-                    antal.textContent = value;
-                    if (value <= 0) {
-                        itemContainer.remove(); // ta bort itemContainer om värdet är 0 eller lägre
-                    }
-                };
+               
+
+                
             
-                // Lägg till knapparna i itemContainer
-                itemContainer.appendChild(ökningKnapp);
-                itemContainer.appendChild(antal);
-                itemContainer.appendChild(minskningKnapp);
+    
             
-                // Lägg in div i containerCart div
-                containerCart.appendChild(itemContainer); // lägger in itemContainer i containerCart
-            }
+
+
+        
+  
             
+
+
 
             
 
@@ -80,16 +114,16 @@ document.addEventListener("DOMContentLoaded", function ()
     let namn = data.foremalData[tillLagd[i]].namn;
     let pris = data.foremalData[tillLagd[i]].pris;
 
-    let itemContainer = document.createElement("div")
+    let box = document.createElement("div")
     let prisElement = document.createElement("h1");
     let namnElement = document.createElement('h1')
     
-    itemContainer.appendChild(namnElement);
+    box.appendChild(namnElement);
     namnContainer.appendChild(namnElement);
 
     prisElement.textContent = pris
     namnElement.textContent = namn;
-    containerCart.appendChild(itemContainer);
+    containerCart.appendChild(box);
     
 
 
