@@ -6,11 +6,12 @@
     <title>Basic Bootstrap Template</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/VaruKorg.css">
 </head>
 <body>
      <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
+            <div class="container px-4 px-lg-5 py-4">
                 <a href="#home"><img width="100px" height="auto" src="#!"></a>
                 <a class="navbar-brand" href="#!">League shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -44,26 +45,25 @@
         
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8 p-3 mt-3 card  mb-auto ">
-           <p class="mb-0"> Varukorgen är tom just nu, lägg till varor och kom tillbaka</p>
+        <div class="col-12 col-md-8 p-4 mt-3 card" id="containerCart">
+           <span class="mb-0" id="filler"> Varukorgen är tom just nu, lägg till varor och kom tillbaka</span>
         </div>
-        <div class="col-4 p-3 mt-auto"> 
-            <div class="col-4">
-            <a class ="btn bg-dark btn-primary w-100  " href="#form">
-                Betala
-            </a>
-            <br>
-            <button type="submit" class="btn btn-outline-primary w-100 mt-1 ">PDF</button>
-        </div>
+        <div class="col-4 p-3">
+    <div class="d-flex flex-column"> <!-- Flex column for better alignment -->
+        <a class="btn bg-dark btn-primary w-100" href="#form">
+            Betala
+        </a>
+       <button type="submit" id="pdf" class="btn btn-outline-primary w-100 mt-2" >PDF</button>
+        <div class="mt-auto"> <!-- Ensures the total stays at the bottom -->
+            Total 300kr
         </div>
     </div>
+</div>
+    </div>
     <br>
-    <br>
-    <br>
-    
     <hr>
     <div class="row justify-content-center">
-        <div class="container mt-5 " >
+        <div id="form" class="container mt-5 " >
         <h2>Checkout</h2>
         <form>
             <!-- Name Field -->
@@ -117,8 +117,11 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src="js/varuKorg.js"></script>
+<script type="text/javascript" src="js/foremalScript.js"></script>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
