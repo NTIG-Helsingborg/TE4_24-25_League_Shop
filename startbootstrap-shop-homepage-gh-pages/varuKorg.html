@@ -6,119 +6,122 @@
     <title>Basic Bootstrap Template</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/VaruKorg.css">
+
+    <link rel="stylesheet" type="text/css" href="css/colors1.css">
+  <link rel="stylesheet" type="text/css" href="css/VaruKorg.css">
 </head>
 <body>
      <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5 py-4">
+       <nav class="navbar navbar-expand-lg navbar-light primaryColor1 ">
+            <div class="container px-4 px-lg-5">
                 <a href="#home"><img width="100px" height="auto" src="#!"></a>
-                <a class="navbar-brand" href="#!">League shop</a>
+                <a class="textColor3 navbar-brand " href="#!"><b>League shop</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item "><a class="nav-link active textColor3" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link textColor3" href="#!">About</a></li>
                     </ul>
                     <form class="d-flex">
                         <a href="varuKorg.html">
-                            <a class="btn btn-outline-dark" tygitpe="submit" href="varuKorg.html">
+                            <a class="btn border-0 btn-outline-dark primaryColor4" tygitpe="submit" href="varuKorg.html">
 
                                 <i class="bi-cart-fill me-1"> </i>
                                 Cart
-                                <span class="badge bg-dark text-white ms-1 rounded-pill" id="korgAntal">0</span>
-                            </a>
+                                <span class="badge primaryColor3 textColor2 ms-1 rounded-pill" id="korgAntal">0</span>
+
+                      
+                          </a>
                         </a>
                     </form>
                 </div>
             </div>
         </nav>
-        
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 p-4 mt-3 card" id="containerCart">
-           <span class="mb-0" id="filler"> Varukorgen är tom just nu, lägg till varor och kom tillbaka</span>
+
+<div class="primaryColor3">
+    <div class="container primaryColor2 textColor3 p-3">
+        <div class="row justify-content-center">
+            <div class="col-8 p-3 mt-3 card  mb-auto ">
+               <p class="mb-0"> Varukorgen är tom just nu, lägg till varor och kom tillbaka</p>
+            </div>
+            <div class="col-4 p-3 mt-auto"> 
+                <div class="col-4">
+                <a class ="btn bg-dark btn-primary w-100  " href="#form">
+                    Betala
+                </a>
+                <br>
+                <button type="submit" class="btn btn-outline-primary w-100 mt-1 ">PDF</button>
+            </div>
+            </div>
         </div>
-        <div class="col-4 p-3">
-    <div class="d-flex flex-column"> <!-- Flex column for better alignment -->
-        <a class="btn bg-dark btn-primary w-100" href="#form">
-            Betala
-        </a>
-       <button type="submit" id="pdf" class="btn btn-outline-primary w-100 mt-2" >PDF</button>
-        <div class="mt-auto"> <!-- Ensures the total stays at the bottom -->
-            Total 300kr
+        <br>
+        <br>
+        <br>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="container mt-5 " >
+            <h2>Checkout</h2>
+            <form>
+                <!-- Name Field -->
+                <div class="mb-3" id="form">
+                    <label for="name" class="form-label">För och efternamn</label>
+                    <input type="text" class="form-control" id="name" placeholder="Johan Johansson">
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email adress</label>
+                    <input type="email" class="form-control" id="email" placeholder="namn@exempel.com">
+                </div>
+
+               <!--Street-->
+               <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="street" class="form-label">Gatunamn</label>
+                        <input type="text" class="form-control" id="street" placeholder="Skriv ditt gatunamn">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="streetNumber" class="form-label">Gatunumer</label>
+                        <input type="text" class="form-control" id="streetNumber" placeholder="52,76,23">
+                    </div>
+                </div>
+
+
+               
+
+                <!-- Dropdown -->
+                <div class="mb-3">
+                    <label for="country" class="form-label">Land</label>
+                    <select class="form-select" id="country">
+                        <option selected>Välj...</option>
+                        <option value="se">Sverige</option>
+                        <option value="dk">Danmark</option>
+                        <option value="fi">Finland</option>
+                        <option value="no">Norge</option>
+                    </select>
+                </div>
+
+                <!-- Textarea -->
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Comments</label>
+                    <textarea class="form-control" id="comments" rows="3" placeholder="Your comments..."></textarea>
+                </div>
+
+                <!-- Skicka till melj -->
+                <button type="submit" class="btn btn-primary">Skicka till melj</button>
+
+            </form>
         </div>
     </div>
 </div>
-    </div>
-    <br>
-    <hr>
-    <div class="row justify-content-center">
-        <div id="form" class="container mt-5 " >
-        <h2>Checkout</h2>
-        <form>
-            <!-- Name Field -->
-            <div class="mb-3" id="form">
-                <label for="name" class="form-label">Hela namnet</label>
-                <input type="text" class="form-control" id="name" placeholder="Johan johansson">
-            </div>
 
-            <!-- Email Field -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email adress</label>
-                <input type="email" class="form-control" id="email" placeholder="namn@exempel.com">
-            </div>
+ <footer class="py-5 primaryColor1">
+            <div class="container"><p class="m-0 text-center textColor3">Copyright &copy; Your Website 2023</p></div>
+</footer>
 
-           <!--Street-->
-           <div class="row">
-                <div class="col-md-8 mb-3">
-                    <label for="street" class="form-label">Gatunamn</label>
-                    <input type="text" class="form-control" id="street" placeholder="Skriv ditt gatunamn">
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="streetNumber" class="form-label">Gatunumer</label>
-                    <input type="text" class="form-control" id="streetNumber" placeholder="52,76,23">
-                </div>
-            </div>
-
-
-           
-
-            <!-- Dropdown -->
-            <div class="mb-3">
-                <label for="country" class="form-label">Land</label>
-                <select class="form-select" id="country">
-                    <option selected>Välj...</option>
-                    <option value="se">Sverige</option>
-                    <option value="dk">Danmark</option>
-                    <option value="fi">Finland</option>
-                    <option value="no">Norge</option>
-                </select>
-            </div>
-
-            <!-- Textarea -->
-            <div class="mb-3">
-                <label for="comments" class="form-label">Comments</label>
-                <textarea class="form-control" id="comments" rows="3" placeholder="Your comments..."></textarea>
-            </div>
-
-            <!-- Skicka till melj -->
-            <button type="submit" class="btn btn-primary">Skicka till melj</button>
-
-        </form>
-    </div>
-</div>
-<script type="text/javascript" src="js/varuKorg.js"></script>
-<script type="text/javascript" src="js/foremalScript.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script type="text/javascript" src="js/varuKorg.js"></script>
+    <script type="text/javascript" src="js/foremalScript.js"></script>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
