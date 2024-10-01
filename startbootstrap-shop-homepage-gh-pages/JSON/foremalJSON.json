@@ -1,0 +1,47 @@
+{
+    "foremalData":
+    [
+        {
+            "namn":"Spirit Blossom Yone",
+            "pris":2000,
+            "bild":"tillgangar/yone.jpg"
+        },
+       {
+            "namn":"30x Breakout Capsules",
+            "pris":300,
+            "bild":"tillgangar/breakout.jpg"
+        },
+        {
+            "namn":"Hextech chest",
+            "pris":30,
+            "bild":"tillgangar/chest.jpg"
+        },
+       {
+            "namn":"Hextech Key",
+            "pris":30,
+            "bild":"tillgangar/key.png"
+        },
+        {
+            "namn":"Masterwork chest",
+            "pris":30,
+            "bild":"tillgangar/master.jpg"
+        },
+        {
+            "namn":"Soul Fighter Viego",
+            "pris":30,
+            "bild":"tillgangar/viego.jpg"
+        },
+        {
+            "namn":"4x Orb 1x Grab Bag",
+            "pris":30,
+            "bild":"tillgangar/orbbag.jpg"
+        },
+        {
+            "namn":"Prime Capsule",
+            "pris":30,
+            "bild":"tillgangar/prime.jpg"
+        }
+
+
+    ]
+}

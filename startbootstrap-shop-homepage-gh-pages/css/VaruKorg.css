@@ -1,0 +1,44 @@
+
+
+#labelRäknare{
+display: block;
+font-size: 3em;
+}
+
+
+.knapp {
+    font-size: 20px;   /* Makes the button text bigger */
+    padding: 15px 30px; /* Increases button size */
+    cursor: pointer;    /* Changes the cursor to a pointer when hovering */
+    margin: 10px;       /* Adds space between the buttons */
+
+@media print {
+    /* Hide everything */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* Only show the cart container and its children */
+    #containerCart, #containerCart * {
+        visibility: visible;
+
+
+    }
+    
+    /* Adjust layout for printing */
+    #containerCart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    img 
+    {
+       display: none;
+    }
+    button
+    {
+    	display: none;
+    }
+}
