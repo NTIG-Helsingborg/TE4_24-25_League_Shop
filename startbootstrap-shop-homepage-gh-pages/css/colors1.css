@@ -1,0 +1,42 @@
+.primaryColor3
+{
+	background-color: #2B3D41 !important;
+}
+.primaryColor2
+{
+	background-color: #FFFFFF !important;
+}
+.primaryColor1
+{
+	background-color: #799496 !important;
+}
+.primaryColor4
+{
+	background-color: #E0BE36!important;
+}
+
+.textColor3
+{
+	color: #2B3D41 !important;
+}
+.textColor2
+{
+	color: #FFFFFF !important;
+}
+.textColor1
+{
+	color: #799496 !important;
+}
+.textColor4
+{
+	color: #E0BE36 !important;
+}
+
+.shadows
+{
+	box-shadow: 0 0 2px 2px #2B3D41 ;
+}
+.shadowss
+{
+	box-shadow: 0 0 1.5px 1.5px #799496 ;
+}
