@@ -1,0 +1,30 @@
+@media print {
+    /* Hide everything */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* Only show the cart container and its children */
+    #containerCart, #containerCart * {
+        visibility: visible;
+
+
+    }
+    
+    /* Adjust layout for printing */
+    #containerCart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    img 
+    {
+       display: none;
+    }
+    button
+    {
+    	display: none;
+    }
+}

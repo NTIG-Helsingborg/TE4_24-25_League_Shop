@@ -1,12 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic Bootstrap Template</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/colors1.css">
+  <link rel="stylesheet" type="text/css" href="css/VaruKorg.css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "HVRudUxt4ungddIWI",
+          });
+       })();
+
+   </script>
 </head>
 <body>
-    <input type="text">
-    
+     <!-- Navigation-->
+       <nav class="navbar navbar-expand-lg navbar-light primaryColor1 ">
+            <div class="container px-4 px-lg-5">
+                <a href="#home"><img width="100px" height="auto" src="#!"></a>
+                <a class="textColor3 navbar-brand " href="#!"><b>League shop</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item "><a class="nav-link active textColor3" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link textColor3" href="#!">About</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <a href="varuKorg.html">
+                            <a class="btn border-0 btn-outline-dark primaryColor4" tygitpe="submit" href="varuKorg.html">
+
+                                <i class="bi-cart-fill me-1"> </i>
+                                Vagn
+                                <span class="badge primaryColor3 textColor2 ms-1 rounded-pill" id="korgAntal">0</span>
+
+                      
+                          </a>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <header class="primaryColor2 textColor3 py-5">
+            <div class="container px-4 px-lg-5 my-5 ">
+                <div class="text-center ">
+                    <h1 class="display-4 fw-bolder">Kundvagn</h1>
+                </div>
+            </div>
+        </header>
+
+<div class="primaryColor3 pt-5">
+    <div class="container primaryColor2 textColor3">
+        <div class="row justify-content-center primaryColor1 p-5">
+                
+
+            <div class="col-8 p-3  card  mb-auto" id="containerCart">
+            <a class ="btn bg-dark btn-primary " href="#form">
+                    Betala
+                </a>
+                <button type="submit" class="btn btn-outline-primary  mt-1 "id="pdf">PDF</button>
+               <span id="filler" class="mb-0"> Varukorgen är tom just nu, lägg till varor och kom tillbaka</span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="container mt-5 " >
+            <h2>Checkout</h2>
+            <form>
+                <!-- Name Field -->
+                <div class="mb-3" id="form">
+                    <label for="name" class="form-label">För och efternamn</label>
+                    <input type="text" class="form-control" id="name" placeholder="Johan Johansson">
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email adress</label>
+                    <input type="email" class="form-control" id="email" placeholder="namn@exempel.com">
+                </div>
+
+
+                <!-- Dropdown -->
+                <div class="mb-3">
+                    <label for="country" class="form-label">Land</label>
+                    <select class="form-select" id="country">
+                        <option selected>Välj...</option>
+                        <option value="se">Sverige</option>
+                        <option value="dk">Danmark</option>
+                        <option value="fi">Finland</option>
+                        <option value="no">Norge</option>
+                    </select>
+                </div>
+
+                <!-- Skicka till melj -->
+                <button type="submit" class="btn btn-primary mb-3" id="sendMail">Skicka till melj</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+ <footer class="py-5 primaryColor1">
+            <div class="container"><p class="m-0 text-center textColor3">Copyright &copy; Your Website 2023</p></div>
+</footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script type="text/javascript" src="js/varuKorg.js"></script>
+    <script type="text/javascript" src="js/foremalScript.js"></script>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+    <script type="text/javascript" src="js/mail.js"></script>
+
+
 </body>
 </html>
