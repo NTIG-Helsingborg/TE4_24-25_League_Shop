@@ -7,6 +7,8 @@
     /* Only show the cart container and its children */
     #containerCart, #containerCart * {
         visibility: visible;
+
+
     }
     
     /* Adjust layout for printing */
@@ -20,5 +22,9 @@
     img 
     {
        display: none;
+    }
+    button
+    {
+    	display: none;
     }
 }
