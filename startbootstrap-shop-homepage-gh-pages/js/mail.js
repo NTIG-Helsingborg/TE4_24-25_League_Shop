@@ -5,6 +5,8 @@
     .then(data => 
 //-----------------------------------------------------------------------------------------------------------------------------
     {
+        let tillLagd = JSON.parse(localStorage.getItem("index")) || []; // Load items from localStorage
+
       function generateEmailMessage()
         {
             let emailMessage = "\n"

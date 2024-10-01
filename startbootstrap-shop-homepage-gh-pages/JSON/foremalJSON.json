@@ -13,33 +13,53 @@
         },
         {
             "namn":"Hextech chest",
-            "pris":30,
+            "pris":90,
             "bild":"tillgangar/chest.jpg"
         },
        {
             "namn":"Hextech Key",
-            "pris":30,
+            "pris":40,
             "bild":"tillgangar/key.png"
         },
         {
             "namn":"Masterwork chest",
-            "pris":30,
+            "pris":160,
             "bild":"tillgangar/master.jpg"
         },
         {
             "namn":"Soul Fighter Viego",
-            "pris":30,
+            "pris":120,
             "bild":"tillgangar/viego.jpg"
         },
         {
             "namn":"4x Orb 1x Grab Bag",
-            "pris":30,
+            "pris":340,
             "bild":"tillgangar/orbbag.jpg"
         },
         {
             "namn":"Prime Capsule",
-            "pris":30,
+            "pris":540,
             "bild":"tillgangar/prime.jpg"
+        },
+        {
+            "namn":"Dark Cosmic Jhin",
+            "pris":360,
+            "bild":"tillgangar/jhin.png"
+        },
+        {
+            "namn":"Winter Blessed Diana",
+            "pris":400,
+            "bild":"tillgangar/dina.png"
+        },
+        {
+            "namn":"True DMG Breakout Ekko",
+            "pris":2000,
+            "bild":"tillgangar/ekko.png"
+        },
+        {
+            "namn":"2 brain cells",
+            "pris":1,
+            "bild":"tillgangar/garen.png"
         }
 
 
