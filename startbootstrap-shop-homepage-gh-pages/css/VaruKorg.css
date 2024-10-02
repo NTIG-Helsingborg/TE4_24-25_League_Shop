@@ -36,10 +36,14 @@ font-size: 3em;
 
     img 
     {
-       display: none;
+       display: none !important;
     }
     button
     {
-    	display: none;
+    	display: none  !important;
+    }
+    a
+    {
+    	display: none  !important;
     }
 }
